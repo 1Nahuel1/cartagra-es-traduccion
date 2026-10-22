@@ -100,6 +100,20 @@ Respalda `sharedassets0.assets` antes de reemplazarlo.
 
 Copia tu respaldo original sobre `script.pac` y `sharedassets0.assets`.
 
+## Estado y limitaciones conocidas
+
+- **Diálogo:** reconstruible byte a byte desde tu `script.pac` original. No
+  depende de la edición concreta del juego, solo de que las líneas de texto
+  coincidan.
+- **Interfaz:** `aplicar_interfaz.py` exige que tu `sharedassets0.assets` sea la
+  **versión soportada** (compara el md5 de cada textura). Si tienes otra edición
+  (p. ej. GOG/Steam) con texturas distintas, el script se detiene con un mensaje
+  claro en lugar de corromper el bundle.
+- **Verificado** con la edición de MangaGamer: el juego arranca con los assets
+  parcheados y las texturas resultantes son idénticas a las aprobadas.
+- Si encuentras una edición no soportada, abre un *issue* indicando la
+  procedencia del juego.
+
 ## Notas técnicas (para curiosos)
 
 El juego **no** guarda el texto en claro: cada `.txt` dentro de `script.pac`
