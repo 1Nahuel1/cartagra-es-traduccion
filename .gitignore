@@ -1,0 +1,16 @@
+# Archivos generados / no distribuir assets del juego
+*.orig_backup
+*.backup_acentos
+atlas_menu/
+*.assets
+sharedassets0.assets
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Sistema
+.DS_Store
+Thumbs.db
