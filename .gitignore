@@ -14,3 +14,5 @@ venv/
 # Sistema
 .DS_Store
 Thumbs.db
+script.pac
+script.pac.*

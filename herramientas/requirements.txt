@@ -1,0 +1,8 @@
+# Solo necesario para las herramientas opcionales de interfaz/traducción.
+# aplicar_traduccion.py, cartagra_tool.py y mgpk.py usan únicamente la stdlib.
+Pillow
+UnityPy
+transformers
+torch
+numpy
+sentencepiece

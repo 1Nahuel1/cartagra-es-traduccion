@@ -3,17 +3,21 @@
 Parche de traducción al español del juego **Cartagra ~Affliction of the Soul~**
 (Innocent Grey / MangaGamer).
 
-Este repositorio contiene **las herramientas, la documentación y el guion
-traducido** (`script.pac`). No se distribuyen assets gráficos del juego.
+Este repositorio contiene **las herramientas, la documentación y el texto
+traducido** (`traducciones/es.json`). **No se distribuye ningún fichero del
+juego** (ni `script.pac` ni assets gráficos). Para aplicar la traducción solo se
+necesita tu propia copia legítima del juego y ejecutar un script que sustituye
+las líneas del guion original por su traducción.
 
 > ⚠️ Compra el juego original para apoyar a sus creadores. Este es un proyecto
-> de traducción por afición.
+> de traducción por afición que no incluye material con copyright.
 
 ## Contenido
 
 | Archivo | Descripción |
 |---|---|
-| `script.pac` | Guion del juego traducido al español (texto). Reemplaza el de tu instalación. |
+| `traducciones/es.json` | Traducción al español (solo el texto traducido, por archivo y línea). |
+| `herramientas/aplicar_traduccion.py` | Reconstruye `script.pac` desde tu copia original + `traducciones/es.json`. |
 | `herramientas/cartagra_tool.py` | Descifra / cifra / extrae / inserta texto del guion. |
 | `herramientas/mgpk.py` | Extractor / reempaquetador del contenedor MGPK (`.pac`). |
 | `herramientas/translate_big.py` | Traductor MT (Marian OPUS en→es) usado para generar la traducción. |
@@ -52,7 +56,17 @@ traducido** (`script.pac`). No se distribuyen assets gráficos del juego.
 
 ### 1. Guion (`script.pac`)
 
-Copia `script.pac` sobre el original:
+Parte de **tu** copia original del juego y genera el `script.pac` traducido:
+
+```bash
+pip install -r herramientas/requirements.txt   # si hace falta
+cd herramientas
+python3 aplicar_traduccion.py /ruta/a/tu/GameData/script.pac script.pac.es
+```
+
+El script extrae los `.txt` de tu original, sustituye únicamente las líneas
+traducidas (preservando BOM y finales de línea) y reempaqueta. Sustituye tu
+`script.pac` por `script.pac.es`:
 
 - **Windows:** `<Instalación>\GameData\script.pac`
 - **Linux/Wine:** `<prefix>/drive_c/.../GameData/script.pac`
@@ -118,6 +132,9 @@ python3 cartagra_tool.py dec carpeta_extraida carpeta_texto
 python3 cartagra_tool.py enc carpeta_texto carpeta_cifrada
 python3 mgpk.py r script.pac.original_backup nuevo.pac carpeta_cifrada
 ```
+
+`aplicar_traduccion.py` automatiza ese mismo flujo partiendo de tu `script.pac`
+original y del fichero `traducciones/es.json`.
 
 ## Créditos
 
