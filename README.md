@@ -4,10 +4,11 @@ Parche de traducción al español del juego **Cartagra ~Affliction of the Soul~*
 (Innocent Grey / MangaGamer).
 
 Este repositorio contiene **las herramientas, la documentación y el texto
-traducido** (`traducciones/es.json`). **No se distribuye ningún fichero del
-juego** (ni `script.pac` ni assets gráficos). Para aplicar la traducción solo se
-necesita tu propia copia legítima del juego y ejecutar un script que sustituye
-las líneas del guion original por su traducción.
+traducido** (`traducciones/es.json` y `interfaz/menu_ui.delta`). **No se
+distribuye ningún fichero original del juego** (ni `script.pac`, ni el bundle,
+ni los atlas completos): los parches solo contienen el texto/píxeles traducidos.
+Para aplicarlos solo se necesita tu propia copia legítima del juego y ejecutar
+los scripts incluidos.
 
 > ⚠️ Compra el juego original para apoyar a sus creadores. Este es un proyecto
 > de traducción por afición que no incluye material con copyright.
@@ -17,7 +18,9 @@ las líneas del guion original por su traducción.
 | Archivo | Descripción |
 |---|---|
 | `traducciones/es.json` | Traducción al español (solo el texto traducido, por archivo y línea). |
+| `interfaz/menu_ui.delta` | Parche delta de la interfaz (solo los píxeles de las etiquetas traducidas). |
 | `herramientas/aplicar_traduccion.py` | Reconstruye `script.pac` desde tu copia original + `traducciones/es.json`. |
+| `herramientas/aplicar_interfaz.py` | Aplica `interfaz/menu_ui.delta` sobre tu `sharedassets0.assets`. |
 | `herramientas/cartagra_tool.py` | Descifra / cifra / extrae / inserta texto del guion. |
 | `herramientas/mgpk.py` | Extractor / reempaquetador del contenedor MGPK (`.pac`). |
 | `herramientas/translate_big.py` | Traductor MT (Marian OPUS en→es) usado para generar la traducción. |
@@ -76,13 +79,20 @@ Respalda el original antes de nada.
 ### 2. Interfaz (atlas de Unity)
 
 Las etiquetas del menú son imágenes dentro de `main_Data/sharedassets0.assets`.
-Para traducirlas, usa las herramientas incluidas (necesitas tu copia del juego):
+Aplica el parche delta (que solo contiene los píxeles de las etiquetas
+traducidas) sobre **tu** copia original:
 
 ```bash
-# 1) Extrae los atlas del bundle del juego (ver pack_bundle.py / patch_atlas.py)
-# 2) Edita/redibuja los labels con patch_atlas.py (fuente en fuentes/)
-# 3) Reempaqueta con pack_bundle.py y reemplaza sharedassets0.assets
+pip install UnityPy
+python3 herramientas/aplicar_interfaz.py /ruta/a/tu/main_Data/sharedassets0.assets sharedassets0.es.assets
 ```
+
+El script verifica que tu bundle sea la versión soportada (compara los datos de
+cada textura) y luego aplica el delta. Sustituye tu `sharedassets0.assets` por
+`sharedassets0.es.assets`:
+
+- **Windows:** `<Instalación>\main_Data\sharedassets0.assets`
+- **Linux/Wine:** `<prefix>/drive_c/.../main_Data/sharedassets0.assets`
 
 Respalda `sharedassets0.assets` antes de reemplazarlo.
 
