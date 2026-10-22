@@ -175,6 +175,19 @@ python3 mgpk.py r script.pac.original_backup nuevo.pac carpeta_cifrada
 `aplicar_traduccion.py` automatiza ese mismo flujo partiendo de tu `script.pac`
 original y del fichero `traducciones/es.json`.
 
+## Apoyar el proyecto
+
+Esta traducción es un proyecto de afición, gratuito y sin ánimo de lucro. Si te
+ha resultado útil y quieres apoyarlo, puedes hacerlo aquí:
+
+[![Invítame a un café en Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/zhaskk829)
+
+Más info en: https://ko-fi.com/zhaskk829
+
+> Las donaciones son totalmente opcionales. El proyecto seguirá siendo libre y
+> gratuito para todo el mundo. No se distribuye ningún fichero con copyright del
+> juego original.
+
 ## Créditos
 
 - Juego original: © Innocent Grey / MangaGamer.
