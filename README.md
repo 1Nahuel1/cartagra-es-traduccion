@@ -114,6 +114,21 @@ Copia tu respaldo original sobre `script.pac` y `sharedassets0.assets`.
 - Si encuentras una edición no soportada, abre un *issue* indicando la
   procedencia del juego.
 
+### Efecto visual de colores en Linux/Wine (no es un fallo del parche)
+
+En Linux ejecutando el juego con **Wine**, algunas etiquetas del menú pueden
+aparecer cubiertas por **colores planos** (p. ej. amarillo o celeste) encima del
+texto. **No es un problema de la traducción:** el texto está correcto en español
+y suele verse bien al pasar el ratón por encima, o al reproducir en Windows.
+
+La causa es el renderizado de las texturas DXT5 bajo Wine/OpenGL (blending de
+alpha), no el bundle en sí. El mismo `sharedassets0.assets` se ve correctamente
+en Windows. Si te molesta, prueba:
+
+- Otro backend de vídeo de Wine (por ejemplo desactivar el *compositor* o usar
+  `WINEDLLOVERRIDES`), o
+- Ejecutar en Windows / una versión de Wine distinta.
+
 ## Notas técnicas (para curiosos)
 
 El juego **no** guarda el texto en claro: cada `.txt` dentro de `script.pac`
