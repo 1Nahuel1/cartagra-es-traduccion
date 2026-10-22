@@ -91,6 +91,7 @@ def main(bundle_in, bundle_out):
     print(f"Texturas parcheadas: {', '.join(sorted(done))}")
     print(f"\nListo: {bundle_out}")
     print("Copialo sobre main_Data/sharedassets0.assets de tu instalacion.")
+    print("\nTe ha sido util? Puedes apoyar el proyecto en https://ko-fi.com/zhaskk829")
 
 
 if __name__ == "__main__":

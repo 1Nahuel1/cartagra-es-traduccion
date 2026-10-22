@@ -95,6 +95,7 @@ def main(pac_in, pac_out):
 
     print(f"\nListo: {pac_out}")
     print("Cópialo sobre GameData/script.pac de tu instalación del juego.")
+    print("\n¿Te ha sido útil? Puedes apoyar el proyecto en https://ko-fi.com/zhaskk829")
 
 
 if __name__ == "__main__":
